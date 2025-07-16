@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import ConferenceEvent from "./ConferenceEvent";
+import PlantListing from "./PlantListing";
 import AboutUs from "./AboutUs";
 
 function App() {
@@ -15,8 +15,8 @@ function App() {
       <header className="first_page">
         <div className="main_event">
           <div className="first_page_name_btn">
-            <h1 className="budget_heading">Conference Expense Planner</h1>
-            <p className="budget_sentence"> Plan your next major event with us!</p>
+            <h1 className="title_heading">Paradise Nursery</h1>
+            <p className="title_caption">Curated plants for every home, heart, and growing journey.</p>
             <div className="getstarted_btn">
               <button onClick={() => handleGetStarted()} className="get-started-btn">
                 Get Started
@@ -30,7 +30,7 @@ function App() {
       </header>
 
       <div className={`event-list-container ${showVenue ? 'visible' : ''}`}>
-        <ConferenceEvent />
+        <PlantListing />
       </div>
     </>
   );

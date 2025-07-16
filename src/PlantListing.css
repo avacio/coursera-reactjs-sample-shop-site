@@ -13,7 +13,9 @@
     font-size: 24px;
   }
   
-  .venue_selection,.addons_selection , .meal_selection {
+                                .plant_listing,
+                                .addons_selection,
+                                .meal_selection {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -21,7 +23,7 @@
     margin-left: 250px;
   }
   
-  .venue_main {
+                                .plant_main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,7 +48,7 @@
     justify-content: center;
     
   }
-  .venue_main .text {
+                .plant_main .text {
     font-size: 30px;
     color: #333;
   }
@@ -147,7 +149,7 @@
     font-size: 25px;
     margin-left: 40px;
   }
-  .venue_main .img img {
+                .plant_main .img img {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -248,12 +250,13 @@
   .table_item_data tbody tr:first-child:hover {
     background-color: transparent;
   }
+
   navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 20px;
-    background-color:#133b6a;
+    background-color:#0e4f41;
     color: white;
     width: 100vw;
   }
@@ -303,7 +306,7 @@
   }
   
   
-  .navbar_event_conference{
+  .navbar{
     position: fixed;
     top: 1px;
     z-index: 99;
