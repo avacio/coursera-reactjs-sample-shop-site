@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { plants } from "./data/plants";
 
-export const venueSlice = createSlice({
+export const plantSlice = createSlice({
   name: "plant",
   initialState: [
     {
@@ -59,8 +60,6 @@ export const venueSlice = createSlice({
     incrementQuantity: (state, action) => {
       const { payload: index } = action;
       if (state[index]) {
-        if (state[index].name === " Auditorium Hall (Capacity:200)" && state[index].quantity >= 3) {
-          return;        }
         state[index].quantity++;
       }
     },
@@ -73,6 +72,6 @@ export const venueSlice = createSlice({
   },
 });
 
-export const { incrementQuantity, decrementQuantity } = venueSlice.actions;
+export const { incrementQuantity, decrementQuantity } = plantSlice.actions;
 
-export default venueSlice.reducer;
+export default plantSlice.reducer;

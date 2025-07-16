@@ -1,9 +1,9 @@
 // store.js
 import { configureStore } from '@reduxjs/toolkit';
-import venueReducer from './plantSlice';
+import plantReducer from './plantSlice';
 
 export default configureStore({
   reducer: {
-    venue: venueReducer,
+    plant: plantReducer,
   },
 });

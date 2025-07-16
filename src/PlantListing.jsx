@@ -8,8 +8,9 @@ import { plants as plantsData } from './data/plants';
 
 const PlantListing = () => {
   const [showItems, setShowItems] = useState(false);
-  const [numberOfPeople, setNumberOfPeople] = useState(1);
-  const plantItems = useSelector((state) => state.venue);
+  // const [numberOfPeople, setNumberOfPeople] = useState(1);
+  const [numberInCart, setNumberInCart] = useState(0);
+  const plantItems = useSelector((state) => state.plant);
   const dispatch = useDispatch();
 
   const handleToggleItems = () => {
@@ -19,21 +20,14 @@ const PlantListing = () => {
 
   const handleAddToCart = (index) => {
     dispatch(incrementQuantity(index));
+    setNumberInCart(numberInCart + 1);
   };
 
   const handleRemoveFromCart = (index) => {
     if (plantItems[index].quantity > 0) {
       dispatch(decrementQuantity(index));
+      setNumberInCart(numberInCart - 1);
     }
-  };
-  const handleIncrementAvQuantity = (index) => {
-  };
-
-  const handleDecrementAvQuantity = (index) => {
-  };
-
-  const handleMealSelection = (index) => {
-
   };
 
   const getItemsFromTotalCost = () => {
@@ -47,14 +41,14 @@ const PlantListing = () => {
   };
   const calculateTotalCost = (section) => {
     let totalCost = 0;
-    if (section === "venue") {
+    if (section === "plant") {
       plantItems.forEach((item) => {
         totalCost += item.cost * item.quantity;
       });
     }
     return totalCost;
   };
-  const venueTotalCost = calculateTotalCost("venue");
+  const plantTotalCost = calculateTotalCost("plant");
 
   const navigateToProducts = (idType) => {
     if (idType == '#flowering' || idType == '#succulent' || idType == '#cactus') {
@@ -77,25 +71,7 @@ const PlantListing = () => {
         <div className="text">{item.name}</div>
         <div>${item.cost}</div>
         <div className="button_container">
-          {plantItems[index].name === "Auditorium Hall (Capacity:200)" ? (
-
-            <>
-              <button
-                className={plantItems[index].quantity === 0 ? "btn-warning btn-disabled" : "btn-minus btn-warning"}
-                onClick={() => handleRemoveFromCart(index)}
-              >
-                &#8211;
-              </button>
-              <span className="selected_count">
-                {plantItems[index].quantity > 0 ? ` ${plantItems[index].quantity}` : "0"}
-              </span>
-              <button
-                onClick={() => handleAddToCart(index)}
-              >
-                &#43;
-              </button>
-            </>
-          ) : (
+          {(
             <div className="button_container">
               <button
                 className={plantItems[index].quantity === 0 ? " btn-warning btn-disabled" : "btn-warning btn-plus"}
@@ -113,7 +89,6 @@ const PlantListing = () => {
                 &#43;
               </button>
 
-
               </div>
           )}
         </div>
@@ -123,7 +98,7 @@ const PlantListing = () => {
 
   return (
     <>
-      <Header />
+      <Header numberInCart={numberInCart} />
       <div className="main_container">
         {!showItems
           ?
@@ -173,7 +148,7 @@ const PlantListing = () => {
 
                 </div>
               </div>
-              <div className="total_cost">Total Cost: ${venueTotalCost}</div>
+              <div className="total_cost">Total Cost: ${plantTotalCost}</div>
             </div>
           ) : (
             <div className="total_amount_detail">
