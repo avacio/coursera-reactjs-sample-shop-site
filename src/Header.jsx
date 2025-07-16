@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./PlantListing.css";
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 export function Header({ numberInCart }) {
 
@@ -7,7 +8,7 @@ export function Header({ numberInCart }) {
 		<div id="navbar" name="navbar" className="navbar">
 
 			<div className="left_navbar">
-				<div className="company_logo">Paradise Nursery</div>
+				<Link to="/" className="company_logo">Paradise Nursery</Link>
 
 				<div className="nav_links">
 					<a href="#flowering">Flowering Plants</a>
@@ -16,8 +17,8 @@ export function Header({ numberInCart }) {
 				</div>
 			</div>
 
-			<div id="cartButton" className="cartButton">Cart<div className="cartIcon"></div>
-				{numberInCart}</div>
+			<Link to="/cart" id="cartButton" className="cartButton">Cart<div className="cartIcon"></div>
+				{numberInCart}</Link>
 		</div>
 	);
 }

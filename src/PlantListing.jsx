@@ -8,7 +8,6 @@ import { plants as plantsData } from './data/plants';
 
 const PlantListing = () => {
   const [showItems, setShowItems] = useState(false);
-  // const [numberOfPeople, setNumberOfPeople] = useState(1);
   const [numberInCart, setNumberInCart] = useState(0);
   const plantItems = useSelector((state) => state.plant);
   const dispatch = useDispatch();
@@ -48,7 +47,18 @@ const PlantListing = () => {
     }
     return totalCost;
   };
+
+  const calculateTotalCount = (section) => {
+    let totalCount = 0;
+    if (section === "plant") {
+      plantItems.forEach((item) => {
+        totalCount += item.quantity;
+      });
+    }
+    return totalCount;
+  };
   const plantTotalCost = calculateTotalCost("plant");
+  const plantTotalCount = calculateTotalCount("plant");
 
   const navigateToProducts = (idType) => {
     if (idType == '#flowering' || idType == '#succulent' || idType == '#cactus') {
@@ -59,7 +69,6 @@ const PlantListing = () => {
   }
 
   const showPlants = (item, index, category) => {
-    // const showPlants = (item, index) => {
     // Skip categories that don't match
     if (category != item.category) return;
 
@@ -98,7 +107,7 @@ const PlantListing = () => {
 
   return (
     <>
-      <Header numberInCart={numberInCart} />
+      <Header numberInCart={plantTotalCount} />
       <div className="main_container">
         {!showItems
           ?
