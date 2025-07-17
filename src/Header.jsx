@@ -18,8 +18,8 @@ export function Header({ numberInCart }) {
 				</div>
 			</div>
 
-			<Link to="/cart" id="cartButton" className="cartButton">Cart<div className="cartIcon"></div>
-				{numberInCart}</Link>
+			<Link to="/cart" id="cartButton" className="cartButton">Cart<div className="cartIcon">&nbsp;&nbsp;{numberInCart}</div>
+			</Link>
 		</div>
 	);
 }
