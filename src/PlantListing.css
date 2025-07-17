@@ -39,7 +39,7 @@
 .text h1 {
   width: 900px;
   font-size: 40px;
-  background-color: #133b6a;
+  background-color: #188a75;
   color: white;
   width: 990px;
   height: 70px;
@@ -92,7 +92,7 @@
   padding: 10px;
   width: 400px;
   margin-top: 15px;
-  margin-left: 190px;
+  font-weight: bolder;
 }
 
 .av_data {
@@ -293,7 +293,7 @@
 .nav_links {
   display: flex;
   align-items: flex-start;
-  align-self: anchor-center;
+  align-self: center;
 }
 
 .nav_links a {
@@ -309,10 +309,10 @@
 }
 
 .button_container {
-  /* background-color: red; */
   width: 200px;
   display: flex;
   gap: 20px;
+  justify-content: center;
 }
 
 .details_button {
@@ -376,7 +376,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px 20px;
-    background-color: #133b6a;
+    background-color: #0e4f41;
     color: white;
     width: 100vw;
     gap: 5%;

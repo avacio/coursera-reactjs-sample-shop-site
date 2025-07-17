@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { plants } from "./data/plants";
 
 export const plantSlice = createSlice({
   name: "plant",
