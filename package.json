@@ -1,8 +1,8 @@
 {
-  "name": "eventone",
+  "name": "paradise-nursery",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://avacio.github.io/coursera-reactjs-plant-shop/",
+  "homepage": "https://avacio.github.io/coursera-reactjs-sample-shop-site/",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
