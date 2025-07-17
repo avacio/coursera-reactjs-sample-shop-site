@@ -6,35 +6,27 @@ import { useSelector, useDispatch } from "react-redux";
 import PlantsPage from './PlantListing';
 import ShoppingCartPage from './ShoppingCart';
 import LandingPage from './Landing';
-import { incrementQuantity, decrementQuantity } from "./plantSlice";
-import { useLocation } from 'react-router'
+import { incrementQuantity, decrementQuantity, resetQuantity } from "./plantSlice";
 
 function App() {
 
   const plantItems = useSelector((state) => state.plant);
   const dispatch = useDispatch();
-  // const { pathname, hash } = useLocation();
 
-  // React.useEffect(() => {
-  //   if (hash) {
-  //     window.location.replace(pathname + hash);
-  //   }
-  // }, []);
-
-  // const handleToggleItems = () => {
-  //   console.log("handleToggleItems called");
-  //   setShowItems(!showItems);
-  // };
 
   function handleAddToCart(index) {
     dispatch(incrementQuantity(index));
-    // setNumberInCart(numberInCart + 1);
   };
 
   function handleRemoveFromCart(index) {
     if (plantItems[index].quantity > 0) {
       dispatch(decrementQuantity(index));
-      // setNumberInCart(numberInCart - 1);
+    }
+  };
+
+  function deleteFromCart(index) {
+    if (plantItems[index].quantity > 0) {
+      dispatch(resetQuantity(index));
     }
   };
 
@@ -66,7 +58,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/plants" element={<PlantsPage handleAddToCart={handleAddToCart} handleRemoveFromCart={handleRemoveFromCart} plantTotalCost={plantTotalCost} plantTotalCount={plantTotalCount} />} />
-        <Route path="/cart" element={<ShoppingCartPage />} />
+        <Route path="/cart" element={<ShoppingCartPage handleAddToCart={handleAddToCart} handleRemoveFromCart={handleRemoveFromCart} plantTotalCost={plantTotalCost} plantTotalCount={plantTotalCount} deleteFromCart={deleteFromCart} />} />
       </Routes>
     </Router>
   );

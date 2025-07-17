@@ -14,7 +14,7 @@ export function Header({ numberInCart }) {
 				<div className="nav_links">
 					<HashLink to="/plants#flowering">Flowering Plants</HashLink>
 					<HashLink to="/plants#succulent">Succulents</HashLink>
-					<a href="#cactus"><HashLink to="/plants#cactus">Cacti</HashLink></a>
+					<HashLink to="/plants#cactus">Cacti</HashLink>
 				</div>
 			</div>
 

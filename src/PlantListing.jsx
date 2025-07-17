@@ -3,7 +3,6 @@ import "./PlantListing.css";
 import TotalCost from "./TotalCost";
 import { Header } from "./Header";
 import { useSelector, useDispatch } from "react-redux";
-import { incrementQuantity, decrementQuantity } from "./plantSlice";
 
 function PlantListing({ handleAddToCart, handleRemoveFromCart, plantTotalCost, plantTotalCount }) {
   const [showItems, setShowItems] = useState(false);
