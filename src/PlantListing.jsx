@@ -38,21 +38,11 @@ function PlantListing({ handleAddToCart, handleRemoveFromCart, plantTotalCost, p
           {(
             <div className="button_container">
               <button
-                className={plantItems[index].quantity === 0 ? " btn-warning btn-disabled" : "btn-warning btn-plus"}
-                onClick={() => handleRemoveFromCart(index)}
-              >
-                &#8211;
-              </button>
-              <span className="selected_count">
-                {plantItems[index].quantity > 0 ? ` ${plantItems[index].quantity}` : "0"}
-              </span>
-              <button
-                className={plantItems[index].quantity === 10 ? " btn-success btn-disabled" : "btn-success btn-plus"}
+                className={plantItems[index].quantity === 0 ? " addToCartButton" : "addToCartButton btn-disabled"}
                 onClick={() => handleAddToCart(index)}
               >
-                &#43;
+                {plantItems[index].quantity === 0 ? "Add to Cart" : "Added to Cart"}
               </button>
-
               </div>
           )}
         </div>
@@ -81,16 +71,12 @@ function PlantListing({ handleAddToCart, handleRemoveFromCart, plantTotalCost, p
 
               <div id="succulent" className="venue_container container_main">
 
-
                 <div className="text">
                   <h1>Succulents</h1>
                 </div>
                 <div className="plant_listing">
                   {plantItems.map((item, index) =>
                     showPlants(item, index, "succulent"))}
-                </div>
-                <div className="addons_selection">
-
                 </div>
               </div>
 
@@ -105,12 +91,6 @@ function PlantListing({ handleAddToCart, handleRemoveFromCart, plantTotalCost, p
                     showPlants(item, index, "cactus"))}
                 </div>
 
-                <div className="input-container venue_selection">
-
-                </div>
-                <div className="meal_selection">
-
-                </div>
               </div>
               <div className="total_cost">Total Cost: ${plantTotalCost}</div>
             </div>
