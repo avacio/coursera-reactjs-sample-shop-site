@@ -56,19 +56,19 @@ export const plantSlice = createSlice({
   ],
   reducers: {
    
-    incrementQuantity: (state, action) => {
+    addItem: (state, action) => {
       const { payload: index } = action;
       if (state[index]) {
         state[index].quantity++;
       }
     },
-    decrementQuantity: (state, action) => {
+    removeItem: (state, action) => {
       const { payload: index } = action;
       if (state[index] && state[index].quantity > 0) {
         state[index].quantity--;
       }
     },
-    resetQuantity: (state, action) => {
+    updateQuantity: (state, action) => {
       const { payload: index } = action;
       if (state[index] && state[index].quantity > 0) {
         state[index].quantity = 0;
@@ -77,6 +77,6 @@ export const plantSlice = createSlice({
   },
 });
 
-export const { incrementQuantity, decrementQuantity, resetQuantity } = plantSlice.actions;
+export const { addItem, removeItem, updateQuantity } = plantSlice.actions;
 
 export default plantSlice.reducer;

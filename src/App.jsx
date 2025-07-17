@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import PlantsPage from './PlantListing';
 import ShoppingCartPage from './ShoppingCart';
 import LandingPage from './Landing';
-import { incrementQuantity, decrementQuantity, resetQuantity } from "./plantSlice";
+import { addItem, removeItem, updateQuantity } from "./CartSlice";
 
 function App() {
 
@@ -15,18 +15,18 @@ function App() {
 
 
   function handleAddToCart(index) {
-    dispatch(incrementQuantity(index));
+    dispatch(addItem(index));
   };
 
   function handleRemoveFromCart(index) {
     if (plantItems[index].quantity > 0) {
-      dispatch(decrementQuantity(index));
+      dispatch(removeItem(index));
     }
   };
 
   function deleteFromCart(index) {
     if (plantItems[index].quantity > 0) {
-      dispatch(resetQuantity(index));
+      dispatch(updateQuantity(index));
     }
   };
 

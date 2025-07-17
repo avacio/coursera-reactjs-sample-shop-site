@@ -1,6 +1,6 @@
 // store.js
 import { configureStore } from '@reduxjs/toolkit';
-import plantReducer from './plantSlice';
+import plantReducer from './CartSlice';
 
 export default configureStore({
   reducer: {
