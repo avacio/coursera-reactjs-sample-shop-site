@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import PlantListing from "./PlantListing";
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import PlantsPage from './PlantListing';
 import ShoppingCartPage from './ShoppingCart';
